@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partyanlage Mieten</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Füge diese Styles hinzu, wenn sie noch nicht in deiner CSS-Datei sind */
+        .package {
+            background-color: black;
+            color: rgb(0, 140, 250);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .package:hover {
+            background-color: rgb(0, 140, 250);
+            color: white;
+            transform: scale(1.05);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +36,7 @@
             <p>Unsere hochwertigen Musikanlagen bringen die Extraportion Spaß für Geburtstage, Feiern und Partys. Hier erfahren Sie, was unsere Pakete beinhalten!</p>
         </section>
         <section class="packages">
-            <div class="package">
+            <div class="package" id="basic-party">
                 <h3>Basic Party</h3>
                 <p>€59.99</p>
                 <ul>
@@ -29,7 +47,7 @@
                 </ul>
                 <button onclick="location.href='pakete.html'">Mieten</button>
             </div>
-            <div class="package">
+            <div class="package" id="partyfee">
                 <h3>Partyfee</h3>
                 <p>€99.99</p>
                 <ul>
@@ -40,7 +58,7 @@
                 </ul>
                 <button onclick="location.href='pakete.html'">Mieten</button>
             </div>
-            <div class="package">
+            <div class="package" id="luxus-paket">
                 <h3>Luxus-Paket</h3>
                 <p>€129.99</p>
                 <ul>
@@ -63,5 +81,20 @@
     <footer>
         <p>&copy; 2024 Partyanlage Mieten</p>
     </footer>
+    <script>
+        document.querySelectorAll('.package').forEach(package => {
+            package.addEventListener('mouseover', () => {
+                package.style.backgroundColor = 'rgb(0, 140, 250)';
+                package.style.color = 'white';
+                package.style.transform = 'scale(1.05)';
+            });
+
+            package.addEventListener('mouseout', () => {
+                package.style.backgroundColor = 'black';
+                package.style.color = 'rgb(0, 140, 250)';
+                package.style.transform = 'scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
